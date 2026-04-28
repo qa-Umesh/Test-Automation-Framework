@@ -31,7 +31,7 @@ public abstract class BrowserUtility {
 	public BrowserUtility(WebDriver driver) {
 		super();
 		this.driver.set(driver);
-		; // Initialized the instance variable
+		// Initialized the instance variable
 	}
 
 	public BrowserUtility(Browser browserName) {
@@ -108,7 +108,7 @@ public abstract class BrowserUtility {
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
 		String timeStamp = format.format(date);
-		String path = System.getProperty("user.dir") + File.separator + "screenShots" + File.separator + name + " - "
+		String path = "."+File.separator+"screenShots" + File.separator + name + " - "
 				+ timeStamp + ".png";
 
 		File file = new File(path);
