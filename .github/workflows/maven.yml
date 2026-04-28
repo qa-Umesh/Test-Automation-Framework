@@ -47,22 +47,41 @@ jobs:
        name: screenShots
        path: screenShots/
        
-    - name: Upload Test Reorts 
+    - name: Upload HTML Reorts as artifacts
       if: always()
       uses: actions/upload-artifact@v7.0.1
       with:
-       name: Test Report
+       name: html.report
        path: reports.html
 
-    - name: Upload Test Reorts 
+    - name: Test execution status 
+      if: always()
       run: echo "Test Execution Completed"
 
-    - name: Upload Surefire Reports
+    - name: Copy Report to gh-pages Folder
+      if:  always()
+
+      run: |
+       mkdir -p public/extent-reports
+       cp -R report.html  public/extent-reports/
+       cp -R screenShots/ public/extent-reports/screenshots/
+       Is -I
+
+    - name: Deploy
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: JamesIves/github-pages-deploy-action@v4.8.0
       with:
-       name: surefire-reports
-       path: target/surefire-reports/
+       folder: public/extent.reports/
+       token: ${{ secrets.PAT1234 }}
+       clean: true
+    
+
+       
+
+    
+    
+
+   
 
       
 
