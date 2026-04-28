@@ -24,3 +24,4 @@ Run on LambdaTest cloud:
 ```bash
 mvn clean test -Dbrowser=chrome -DisLamdaTest=true -DisheadLess=false
 ```
+
