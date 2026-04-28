@@ -12,4 +12,15 @@ Scalable Java test automation framework using Selenium WebDriver, TestNG and Lam
 - Environment-based configuration
 
 ## Run Tests
-mvn clean test
+
+Run locally (headless Firefox):
+
+```bash
+mvn clean test -Dbrowser=firefox -DisLamdaTest=false -DisheadLess=true
+```
+
+Run on LambdaTest cloud:
+
+```bash
+mvn clean test -Dbrowser=chrome -DisLamdaTest=true -DisheadLess=false
+```
