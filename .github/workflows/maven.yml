@@ -40,12 +40,19 @@ jobs:
        name: Test log
        path: logs/
        
+    - name: Upload screenshot as Artifacts 
+      if: always()
+      uses: actions/upload-artifact@v7.0.1
+      with:
+       name: screenShots
+       path: screenShots/
+       
     - name: Upload Test Reorts 
       if: always()
       uses: actions/upload-artifact@v7.0.1
       with:
        name: Test Report
-       path: Reports
+       path: reports.html
 
     - name: Upload Test Reorts 
       run: echo "Test Execution Completed"
