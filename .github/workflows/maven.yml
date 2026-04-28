@@ -1,88 +1,67 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: Test Automation Framework
 
 on:
   schedule:
-    - cron: 00 18 * * *
+    - cron: '00 18 * * *'
   push:
-    branches: [ "master" ]
+    branches: [ master ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 11
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
-    - name: Running Test Automation Framework with Maven
-      run: mvn test -X -Dbrowser=chrome -DisLamdaTest=true -DisheadLess=false
+      - uses: actions/checkout@v4
 
- 
-    - name: Upload Test Logs 
-      if: always()
-      uses: actions/upload-artifact@v7.0.1
-      with:
-       name: Test log
-       path: logs/
-       
-    - name: Upload screenshot as Artifacts 
-      if: always()
-      uses: actions/upload-artifact@v7.0.1
-      with:
-       name: screenShots
-       path: screenShots/
-       
-    - name: Upload HTML Reorts as artifacts
-      if: always()
-      uses: actions/upload-artifact@v7.0.1
-      with:
-       name: html.report
-       path: reports.html
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: temurin
+          cache: maven
 
-    - name: Test execution status 
-      if: always()
-      run: echo "Test Execution Completed"
+      - name: Run Test Automation Framework
+        run: mvn clean test -Dbrowser=chrome -DisLamdaTest=true -DisheadLess=false
 
-    - name: Copy Report to gh-pages Folder
-      if:  always()
+      - name: Upload Test Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-log
+          path: logs/
 
-      run: |
-       mkdir -p public/extent-reports
-       cp -R report.html  public/extent-reports/
-       cp -R screenShots/ public/extent-reports/screenshots/
-       Is -I
+      - name: Upload Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenShots/
 
-    - name: Deploy
-      if: always()
-      uses: JamesIves/github-pages-deploy-action@v4.8.0
-      with:
-       folder: public/extent.reports/
-       token: ${{ secrets.PAT1234 }}
-       clean: true
-    
+      - name: Upload HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: Reports/
 
-       
+      - name: Test execution status
+        if: always()
+        run: echo "Test Execution Completed"
 
-    
-    
+      - name: Copy Report to gh-pages Folder
+        if: always()
+        run: |
+          mkdir -p public/extent-reports
+          cp -R Reports/reports.html public/extent-reports/
+          cp -R screenShots public/extent-reports/
+          ls -l public/extent-reports
 
-   
-
-      
-
-   
+      - name: Deploy
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
+        with:
+          folder: public/extent-reports
+          token: ${{ secrets.PAT1234 }}
+          clean: true
