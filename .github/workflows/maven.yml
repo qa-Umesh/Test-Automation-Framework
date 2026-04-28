@@ -46,7 +46,14 @@ jobs:
           name: html-report
           path: Reports/
 
-      - name: Test execution status
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/
+
+      - name: Test Execution Completed
         if: always()
         run: echo "Test Execution Completed"
 
@@ -58,7 +65,7 @@ jobs:
           cp -R screenShots public/extent-reports/
           ls -l public/extent-reports
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         if: always()
         uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
