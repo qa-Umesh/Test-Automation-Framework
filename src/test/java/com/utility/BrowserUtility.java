@@ -232,7 +232,7 @@ public abstract class BrowserUtility {
 		Date date = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
 		String timeStamp = format.format(date);
-		String path = "." + File.separator + "ScreenShots" + File.separator + name + " - " + timeStamp + ".png";
+		String path = "." + File.separator + "ScreenShots" + File.separator + name + ".png";
 
 		File file = new File(path);
 		try {
