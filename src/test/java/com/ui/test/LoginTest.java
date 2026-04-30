@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest{
 			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
 	public void loginTest2(User user) {
 
-		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserName(),
+		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserNameText(),
 				"Umesh kute");
 
 	}

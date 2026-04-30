@@ -22,8 +22,9 @@ public class BaseTest {
 
 	@Parameters({ "browser", "isLamdaTest", "isheadLess" })
 	@BeforeMethod(description = "Load the Home page of the Website")
-	public void setup(@Optional("chrome") String browser, @Optional("false") boolean isLamdaTest,
-			@Optional("false") boolean isheadLess, ITestResult result) {
+	public void setup(@Optional("chrome") String browser, 
+			          @Optional("false") boolean isLamdaTest,
+		              @Optional("false") boolean isheadLess, ITestResult result) {
 
 		this.isLamdaTest = isLamdaTest;
 		WebDriver lamdaDriver;
@@ -38,15 +39,15 @@ public class BaseTest {
 
 	}
 
-	@AfterMethod
-	public void tearDown() {
-		if (isLamdaTest) {
-			LamdaTestUtility.quiteSession();
-		} else {
-			homePage.quite(); // local machine session
-
-		}
-	}
+//	@AfterMethod
+//	public void tearDown() {
+//		if (isLamdaTest) {
+//			LamdaTestUtility.quiteSession();
+//		} else {
+//			homePage.quite(); // local machine session
+//
+//		}
+//	}
 
 	public BrowserUtility getInstance() {
 		return homePage;

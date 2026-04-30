@@ -8,6 +8,10 @@
 		<parameter name="isheadLess" value="${isheadLess}"></parameter>
 		<classes>
 			<class name="com.ui.test.LoginTest" />
+			<class name="com.ui.test.LoginTestWithInvalidCreds" />
+			<class name="com.ui.test.SearchProductTest" />
+			<class name="com.ui.test.ProductCheckOutTest" />
+
 		</classes>
 	</test> <!--
 	Test -->

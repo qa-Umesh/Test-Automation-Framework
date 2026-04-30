@@ -15,6 +15,7 @@ public final class HomePage extends BrowserUtility {
 
 	private Logger logger = LoggerUtility.getLogger(this.getClass());
 	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(),'Sign in')]");
+	private static final By PRODUCT_LINK_LOCATOR = By.xpath("//img[@title=\"Faded Short Sleeves T-shirt\"]");
 
 	public HomePage(Browser browserName, boolean isHeadless) {
 		super(browserName, isHeadless);
@@ -37,8 +38,15 @@ public final class HomePage extends BrowserUtility {
 		logger.info("trying to perform click to go to sign in page");
 		clickOn(SIGN_IN_LINK_LOCATOR);
 		LoginPage loginPage = new LoginPage(getDriver());
-
 		return loginPage;
 	}
+	
+//	public ProductPage selectProduct() {
+//		scrollIntoElemenetView(PRODUCT_LINK_LOCATOR);
+//		hoverAction(PRODUCT_LINK_LOCATOR);
+//		ProductPage productPage = new ProductPage(getDriver());
+//		return productPage;
+//		
+//	}
 
 }
