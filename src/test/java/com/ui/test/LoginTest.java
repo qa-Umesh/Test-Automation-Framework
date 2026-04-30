@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest{
 
 	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
 			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
-	public void loginTest2(User user) {
+	public void loginExcelTest(User user) {
 
 		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserNameText(),
 				"Umesh kute");

@@ -17,7 +17,7 @@ public class LoginTestForInvalidCreds extends BaseTest {
 
 	@Test(description = "Verfies if the proper error message is shown for the user when they enter invalid credentials", groups = {
 			"e2e", "sanity", "Somke" })
-	public void loginJsonTest() {
+	public void inValidLoginJsonTest() {
 
 		assertEquals(homePage.goToLoginPage().doLoginWith(EMAIL_ID,PASSWORD).getUserNameText(), "Authentication failed.");
 	}
