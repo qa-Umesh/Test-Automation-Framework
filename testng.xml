@@ -4,11 +4,11 @@
 	verbose="1">
 	<test name="ui automation test">
 		<parameter name="browser" value="${browser}"></parameter>
-		<parameter name="isLamdaTest" value="${isLamdaTest}"></parameter>
-		<parameter name="isheadLess" value="${isheadLess}"></parameter>
+		<parameter name="isLambdaTest" value="${isLambdaTest}"></parameter>
+		<parameter name="isHeadless" value="${isHeadless}"></parameter>
 		<classes>
 			<class name="com.ui.test.LoginTest" />
-			<class name="com.ui.test.LoginTestForInvalidCreds" />
+			<class name="com.ui.test.InvalidLoginTest" />
 			<class name="com.ui.test.SearchProductTest" />
 			<class name="com.ui.test.ProductCheckOutTest" />
 

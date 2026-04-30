@@ -13,6 +13,7 @@ public final class MyAccountPage extends BrowserUtility {
 	private static final By SEARCH_RESULT_LOCATOR = By.xpath("//div[contains(@class,'right-block')]/h5//a");
 	private static final By ADD_NEW_ADDRESS_LINK_LOCATOR = By.xpath("//a[@title=\"Add my first address\"]");
 	private static final By RETURN_TO_HOME_LOCATOR=By.xpath("//a[@title='Return to Home']");
+	private static final By AUTHENTICATION_FAILED_TEXT_LOCATOR= By.xpath("//div[contains(@class,'alert alert-danger')]/ol/li");
 
 	public MyAccountPage(WebDriver driver) {
 		super(driver);
@@ -20,6 +21,10 @@ public final class MyAccountPage extends BrowserUtility {
 
 	public String getUserNameText() {
 		return getVisibleText(USER_NAME_LOCATOR);
+	}
+	
+	public String getFailAuthenticationText() {
+		return getVisibleText(AUTHENTICATION_FAILED_TEXT_LOCATOR);
 	}
 
 	public SearchResultPage searchForProduct(String ProductName) {

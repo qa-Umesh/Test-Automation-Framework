@@ -18,30 +18,30 @@ public class BaseTest {
 
 	protected HomePage homePage;
 	private Logger logger = LoggerUtility.getLogger(this.getClass());
-	private boolean isLamdaTest;
+	private boolean isLambdaTest;
 
-	@Parameters({ "browser", "isLamdaTest", "isheadLess" })
+	@Parameters({ "browser", "isLambdaTest", "isHeadless" })
 	@BeforeMethod(description = "Load the Home page of the Website")
 	public void setup(@Optional("chrome") String browser, 
-			          @Optional("false") boolean isLamdaTest,
-		              @Optional("false") boolean isheadLess, ITestResult result) {
+			          @Optional("false") boolean isLambdaTest,
+		              @Optional("false") boolean isHeadless, ITestResult result) {
 
-		this.isLamdaTest = isLamdaTest;
+		this.isLambdaTest = isLambdaTest;
 		WebDriver lamdaDriver;
-		if (isLamdaTest) {
+		if (isLambdaTest) {
 			lamdaDriver = LamdaTestUtility.intializedLambadTestSession(browser, result.getMethod().getMethodName());
 			homePage = new HomePage(lamdaDriver);
 
 		} else {
 			logger.info("Load the Home page of the Website");
-			homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isheadLess);
+			homePage = new HomePage(Browser.valueOf(browser.toUpperCase()), isHeadless);
 		}
 
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		if (isLamdaTest) {
+		if (isLambdaTest) {
 			LamdaTestUtility.quiteSession();
 		} else {
 			homePage.quite(); // local machine session

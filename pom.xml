@@ -34,8 +34,8 @@
 					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<browser>${browser}</browser>
-						<isLamdaTest>${isLamdaTest}</isLamdaTest>
-						<isheadLess>${isheadLess}</isheadLess>
+						<isLambdaTest>${isLambdaTest}</isLambdaTest>
+						<isHeadless>${isHeadless}</isHeadless>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

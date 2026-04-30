@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import com.ui.pojo.User;
 
 @Listeners(com.ui.listners.TestListner.class)
-public class LoginTestForInvalidCreds extends BaseTest {
+public class InvalidLoginTest extends BaseTest {
 
 	private static final String EMAIL_ID="umeskute453@gmail.com";
 	private static final String PASSWORD="password";
@@ -16,9 +16,9 @@ public class LoginTestForInvalidCreds extends BaseTest {
 
 	@Test(description = "Verfies if the proper error message is shown for the user when they enter invalid credentials", groups = {
 			"e2e", "sanity", "Somke" })
-	public void inValidLoginJsonTest() {
+	public void inValidLoginTest() {
 
-		assertEquals(homePage.goToLoginPage().doLoginWith(EMAIL_ID,PASSWORD).getUserNameText(), "Authentication failed.");
+		assertEquals(homePage.goToLoginPage().doLoginWith(EMAIL_ID,PASSWORD).getFailAuthenticationText(), "Authentication failed.");
 	}
 
 }

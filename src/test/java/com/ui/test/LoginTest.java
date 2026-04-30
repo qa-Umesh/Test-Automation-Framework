@@ -12,13 +12,13 @@ public class LoginTest extends BaseTest{
 
 	
 
-//	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
-//			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestJsonDataProvider")
-//	public void loginJsonTest(User user) {
-//
-//		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserName(),
-//				"Umesh kute");
-//	}
+	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
+			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestJsonDataProvider")
+	public void loginJsonTest(User user) {
+
+		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserNameText(),
+				"Umesh kute");
+	}
 //
 //	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
 //			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestCSVDataProvider",retryAnalyzer = com.ui.listners.MyRetryAnalyzer.class)
@@ -28,13 +28,13 @@ public class LoginTest extends BaseTest{
 //				"Umesh kute");
 //	}
 
-	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
-			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
-	public void loginExcelTest(User user) {
-
-		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserNameText(),
-				"Umesh kute");
-
-	}
+//	@Test(description = "Verfies with valid user is able to login into the applicaiton.", groups = { "e2e",
+//			"sanity" }, dataProviderClass = com.ui.dataProvider.LoginDataProvider.class, dataProvider = "LoginTestExcelDataProvider")
+//	public void loginExcelTest(User user) {
+//
+//		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmail(), user.getPassword()).getUserNameText(),
+//				"Umesh kute");
+//
+//	}
 
 }
