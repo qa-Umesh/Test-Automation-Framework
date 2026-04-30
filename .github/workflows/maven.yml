@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: html-report
-          path: Reports/
+          path: Reports/reports.html
 
       - name: Upload Surefire Reports
         if: always()
