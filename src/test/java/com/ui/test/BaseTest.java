@@ -39,15 +39,15 @@ public class BaseTest {
 
 	}
 
-//	@AfterMethod
-//	public void tearDown() {
-//		if (isLamdaTest) {
-//			LamdaTestUtility.quiteSession();
-//		} else {
-//			homePage.quite(); // local machine session
-//
-//		}
-//	}
+	@AfterMethod
+	public void tearDown() {
+		if (isLamdaTest) {
+			LamdaTestUtility.quiteSession();
+		} else {
+			homePage.quite(); // local machine session
+
+		}
+	}
 
 	public BrowserUtility getInstance() {
 		return homePage;
