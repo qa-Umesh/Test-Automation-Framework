@@ -1,8 +1,6 @@
 name: Test Automation Framework
 
 on:
-  schedule:
-    - cron: '00 18 * * *'
   push:
     branches: [ master ]
   pull_request:
