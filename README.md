@@ -7,7 +7,7 @@ It supports **data-driven testing** with CSV, Excel (Apache POI), and JSON, alon
 Designed for **CI/CD integration** using Maven Surefire, it also includes **Extent Reports for reporting** and **Log4j for logging**, making test execution, debugging, and analysis efficient. The architecture is modular and easily extendable for future enhancements.
 
 ## 🚀 About Me
-Hii, My name is Umesh kute and I have 2 years of Experience in Automation Testing using Technologies like Selenium WebDriver. API Testing through Postman. 
+Hi, my name is Umesh kute and I have 2 years of Experience in Automation Testing using Technologies like Selenium WebDriver. API Testing through Postman. 
 
 My Major experties in Java Programming language.
 
